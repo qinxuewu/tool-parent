@@ -3,6 +3,7 @@
   <component name="FrameworkDetectionExcludesConfiguration">
     <file type="web" url="file://$PROJECT_DIR$/pflm-admin" />
     <file type="web" url="file://$PROJECT_DIR$/pflm-web" />
+    <file type="web" url="file://$PROJECT_DIR$/redis-tool-web" />
   </component>
   <component name="MavenProjectsManager">
     <option name="originalFiles">

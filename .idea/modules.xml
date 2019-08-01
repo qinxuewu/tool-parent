@@ -6,6 +6,10 @@
       <module fileurl="file://$PROJECT_DIR$/pflm-common/pflm-common.iml" filepath="$PROJECT_DIR$/pflm-common/pflm-common.iml" />
       <module fileurl="file://$PROJECT_DIR$/pflm-parent.iml" filepath="$PROJECT_DIR$/pflm-parent.iml" />
       <module fileurl="file://$PROJECT_DIR$/pflm-web/pflm-web.iml" filepath="$PROJECT_DIR$/pflm-web/pflm-web.iml" />
+      <module fileurl="file://$PROJECT_DIR$/redis-tool-common/redis-tool-common.iml" filepath="$PROJECT_DIR$/redis-tool-common/redis-tool-common.iml" />
+      <module fileurl="file://$PROJECT_DIR$/redis-tool-parent.iml" filepath="$PROJECT_DIR$/redis-tool-parent.iml" />
+      <module fileurl="file://$PROJECT_DIR$/redis-tool-web/redis-tool-web.iml" filepath="$PROJECT_DIR$/redis-tool-web/redis-tool-web.iml" />
+      <module fileurl="file://$PROJECT_DIR$/redis-tool-web/redis-tool-web (1).iml" filepath="$PROJECT_DIR$/redis-tool-web/redis-tool-web (1).iml" />
     </modules>
   </component>
 </project>

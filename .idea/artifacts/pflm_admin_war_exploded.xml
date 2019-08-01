@@ -8,7 +8,7 @@
         </element>
         <element id="directory" name="lib">
           <element id="archive" name="pflm-common-1.0.jar">
-            <element id="module-output" name="pflm-common" />
+            <element id="module-output" name="redis-tool-common" />
           </element>
           <element id="library" level="project" name="Maven: org.springframework.boot:spring-boot-starter-data-redis:2.1.2.RELEASE" />
           <element id="library" level="project" name="Maven: org.springframework.data:spring-data-redis:2.1.4.RELEASE" />

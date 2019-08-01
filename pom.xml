@@ -11,10 +11,9 @@
     </parent>
 
     <!-- 项目说明：这里作为聚合工程的父工程 -->
-    <name>pflm-parent</name>
-    <description>面试助手</description>
+    <name>redis-tool-parent</name>
     <groupId>com.pflm</groupId>
-    <artifactId>pflm-parent</artifactId>
+    <artifactId>redis-tool-parent</artifactId>
     <version>1.0</version>
     <packaging>pom</packaging>
 
@@ -57,9 +56,8 @@
 
     <!-- 模块说明：这里声明多个子模块 -->
     <modules>
-        <module>pflm-common</module>
-        <module>pflm-admin</module>
-        <module>pflm-web</module>
+        <module>redis-tool-common</module>
+        <module>redis-tool-web</module>
     </modules>
 
     <dependencies>

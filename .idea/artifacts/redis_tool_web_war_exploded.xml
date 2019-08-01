@@ -1,15 +1,12 @@
 <component name="ArtifactManager">
-  <artifact type="exploded-war" name="pflm-web:war exploded">
-    <output-path>$PROJECT_DIR$/pflm-web/target/pflm-web-1.0</output-path>
+  <artifact type="exploded-war" name="redis-tool-web:war exploded">
+    <output-path>$PROJECT_DIR$/redis-tool-web/target/redis-tool-web-1.0</output-path>
     <root id="root">
       <element id="directory" name="WEB-INF">
         <element id="directory" name="classes">
-          <element id="module-output" name="pflm-web" />
+          <element id="module-output" name="redis-tool-web" />
         </element>
         <element id="directory" name="lib">
-          <element id="archive" name="pflm-common-1.0.jar">
-            <element id="module-output" name="redis-tool-common" />
-          </element>
           <element id="library" level="project" name="Maven: org.springframework.boot:spring-boot-starter-data-redis:2.1.2.RELEASE" />
           <element id="library" level="project" name="Maven: org.springframework.data:spring-data-redis:2.1.4.RELEASE" />
           <element id="library" level="project" name="Maven: org.springframework.data:spring-data-keyvalue:2.1.4.RELEASE" />
@@ -150,9 +147,9 @@
         </element>
       </element>
       <element id="directory" name="META-INF">
-        <element id="file-copy" path="$PROJECT_DIR$/pflm-web/target/pflm-web-1.0/META-INF/MANIFEST.MF" />
+        <element id="file-copy" path="$PROJECT_DIR$/redis-tool-web/target/redis-tool-web-1.0/META-INF/MANIFEST.MF" />
       </element>
-      <element id="javaee-facet-resources" facet="pflm-web/web/Web" />
+      <element id="javaee-facet-resources" facet="redis-tool-web/web/Web" />
     </root>
   </artifact>
 </component>

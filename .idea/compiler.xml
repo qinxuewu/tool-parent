@@ -7,15 +7,19 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="pflm-admin" />
-        <module name="pflm-common" />
         <module name="pflm-web" />
+        <module name="redis-tool-common" />
+        <module name="redis-tool-web" />
+        <module name="redis-tool-web (1)" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="pflm-admin" target="1.8" />
-      <module name="pflm-common" target="1.8" />
-      <module name="pflm-parent" target="1.8" />
       <module name="pflm-web" target="1.8" />
+      <module name="redis-tool-common" target="1.8" />
+      <module name="redis-tool-parent" target="1.8" />
+      <module name="redis-tool-web" target="1.8" />
+      <module name="redis-tool-web (1)" target="1.5" />
     </bytecodeTargetLevel>
   </component>
 </project>
