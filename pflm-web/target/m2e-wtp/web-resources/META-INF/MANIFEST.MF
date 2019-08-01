@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Implementation-Title: pflm-web
+Implementation-Version: 1.0
+Built-By: admin
+Implementation-Vendor-Id: com.pflm
+Build-Jdk: 1.8.0_101
+Implementation-URL: https://projects.spring.io/spring-boot/#/spring-bo
+ ot-starter-parent/pflm-parent/pflm-web
+Created-By: Maven Integration for Eclipse
+

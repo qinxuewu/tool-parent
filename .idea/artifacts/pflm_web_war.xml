@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="pflm-web:war">
+    <output-path>$PROJECT_DIR$/pflm-web/target</output-path>
+    <root id="archive" name="pflm-web-1.0.war">
+      <element id="artifact" artifact-name="pflm-web:war exploded" />
+    </root>
+  </artifact>
+</component>

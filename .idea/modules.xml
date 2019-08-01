@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/pflm-admin/pflm-admin.iml" filepath="$PROJECT_DIR$/pflm-admin/pflm-admin.iml" />
+      <module fileurl="file://$PROJECT_DIR$/pflm-common/pflm-common.iml" filepath="$PROJECT_DIR$/pflm-common/pflm-common.iml" />
+      <module fileurl="file://$PROJECT_DIR$/pflm-parent.iml" filepath="$PROJECT_DIR$/pflm-parent.iml" />
+      <module fileurl="file://$PROJECT_DIR$/pflm-web/pflm-web.iml" filepath="$PROJECT_DIR$/pflm-web/pflm-web.iml" />
+    </modules>
+  </component>
+</project>
