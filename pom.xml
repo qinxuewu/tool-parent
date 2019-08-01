@@ -12,7 +12,7 @@
 
     <!-- 项目说明：这里作为聚合工程的父工程 -->
     <name>pflm-parent</name>
-    <description>面试助手</description>
+    <description>xxxxxx</description>
     <groupId>com.pflm</groupId>
     <artifactId>pflm-parent</artifactId>
     <version>1.0</version>
