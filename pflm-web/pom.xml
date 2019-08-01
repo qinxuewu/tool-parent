@@ -7,7 +7,7 @@
     <packaging>war</packaging>
 
     <name>pflm-web</name>
-    <description>小程序接口模块</description>
+    <description>测试接口模块</description>
 
 
     <!-- 继承本项目的父工程 -->
