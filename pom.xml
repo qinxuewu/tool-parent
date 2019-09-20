@@ -12,7 +12,7 @@
 
     <!-- 项目说明：这里作为聚合工程的父工程 -->
     <name>redis-tool-parent</name>
-    <groupId>com.pflm</groupId>
+    <groupId>com.github</groupId>
     <artifactId>redis-tool-parent</artifactId>
     <version>1.0</version>
     <packaging>pom</packaging>

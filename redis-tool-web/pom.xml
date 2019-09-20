@@ -12,14 +12,14 @@
 
     <!-- 继承本项目的父工程 -->
     <parent>
-        <groupId>com.pflm</groupId>
+        <groupId>com.github</groupId>
         <artifactId>redis-tool-parent</artifactId>
         <version>1.0</version>
     </parent>
 
     <dependencies>
         <dependency>
-            <groupId>com.pflm</groupId>
+            <groupId>com.github</groupId>
             <artifactId>redis-tool-common</artifactId>
             <version>1.0</version>
         </dependency>      
