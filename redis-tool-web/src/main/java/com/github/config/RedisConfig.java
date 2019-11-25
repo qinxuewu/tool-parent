@@ -1,6 +1,7 @@
 package com.github.config;
-import java.io.Serializable;
 
+import com.github.listener.KeyExpiredListener;
+import com.github.listener.RedisReceiver;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,16 +10,16 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.data.redis.connection.RedisConnectionFactory;
 import org.springframework.data.redis.connection.lettuce.LettuceConnectionFactory;
-import org.springframework.data.redis.core.HashOperations;
-import org.springframework.data.redis.core.ListOperations;
-import org.springframework.data.redis.core.RedisTemplate;
-import org.springframework.data.redis.core.SetOperations;
-import org.springframework.data.redis.core.ValueOperations;
-import org.springframework.data.redis.core.ZSetOperations;
+import org.springframework.data.redis.core.*;
 import org.springframework.data.redis.core.script.DefaultRedisScript;
+import org.springframework.data.redis.listener.PatternTopic;
+import org.springframework.data.redis.listener.RedisMessageListenerContainer;
+import org.springframework.data.redis.listener.adapter.MessageListenerAdapter;
 import org.springframework.data.redis.serializer.GenericJackson2JsonRedisSerializer;
 import org.springframework.data.redis.serializer.StringRedisSerializer;
 import org.springframework.scripting.support.ResourceScriptSource;
+
+import java.io.Serializable;
 
 /**
  * redis 配置
@@ -26,12 +27,11 @@ import org.springframework.scripting.support.ResourceScriptSource;
  * 2018年12月27日下午4:00:55
  */
 @Configuration
-public class RedisConfig{
+public class RedisConfig {
 	private Logger log = LoggerFactory.getLogger(getClass());
 	
     @Autowired
     private RedisConnectionFactory factory;
-
     @Bean
     public RedisTemplate<String, Object> redisTemplate() {
         RedisTemplate<String, Object> redisTemplate = new RedisTemplate<>();
@@ -96,4 +96,39 @@ public class RedisConfig{
         return template;
     }
 
+
+    /**
+     * Redis的监听事件
+     *  过期key监听： 修改conf文件  notify-keyspace-events "Ex"  该配置表示监听key的过期事件，默认未开启
+     * @return
+     */
+    @Bean
+    public RedisMessageListenerContainer redisMessageListenerContainer() {
+        RedisMessageListenerContainer redisMessageListenerContainer = new RedisMessageListenerContainer();
+        redisMessageListenerContainer.setConnectionFactory(factory);
+        return redisMessageListenerContainer;
+    }
+    @Bean
+    public KeyExpiredListener keyExpiredListener() {
+        return new KeyExpiredListener(this.redisMessageListenerContainer());
+    }
+
+
+    @Bean
+    public  RedisMessageListenerContainer container(MessageListenerAdapter listenerAdapter) {
+        RedisMessageListenerContainer container = new RedisMessageListenerContainer();
+        container.setConnectionFactory(factory);
+        // 可以添加多个 messageListener，配置不同的交换机
+        container.addMessageListener(listenerAdapter, new PatternTopic("channel:test"));
+        return container;
+    }
+    /**
+     * 消息监听器适配器，绑定消息处理器，利用反射技术调用消息处理器的业务方法
+     * @param redisReceiver
+     * @return
+     */
+    @Bean
+    public  MessageListenerAdapter listenerAdapter(RedisReceiver redisReceiver) {
+        return new MessageListenerAdapter(redisReceiver, "receiveMessage");
+    }
 }

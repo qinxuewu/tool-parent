@@ -1,4 +1,5 @@
 package com.github.modules.apidoc.controller;
+import java.util.Date;
 import java.util.concurrent.TimeUnit;
 import com.github.annotation.RedisRateLimit;
 import io.swagger.annotations.Api;
@@ -10,11 +11,9 @@ import org.redisson.api.RedissonClient;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.data.redis.core.StringRedisTemplate;
+import org.springframework.data.redis.core.ValueOperations;
+import org.springframework.web.bind.annotation.*;
 import springfox.documentation.annotations.ApiIgnore;
 import com.github.utils.JwtUtil;
 import com.github.utils.R;
@@ -46,7 +45,10 @@ public class ApiDocController {
 	private Logger logger = LoggerFactory.getLogger(getClass());
 	 @Autowired
 	 private RedissonClient redissonClient;
-
+	@Autowired
+	private ValueOperations<String, String> valueOperations;
+	@Autowired
+	private StringRedisTemplate template;
 
 
 	 @RequestMapping("redislimit")
@@ -73,6 +75,28 @@ public class ApiDocController {
 		 }
 	 }
 
+
+	@GetMapping("keyExpiredListener")
+	@ApiOperation("监听听Redis过期KEY事件")
+	public R keyExpiredListener(){
+		valueOperations.set("name","qxw",5,TimeUnit.SECONDS);
+		return R.ok();
+	}
+
+	@GetMapping("redisQueue")
+	@ApiOperation("Redis实现发布订阅 消息队列")
+	public R redisQueue(){
+		for(int i = 1; i <= 5; i++){
+			try{
+				Thread.sleep(1000);
+			}catch(InterruptedException ex){
+				ex.printStackTrace();
+			}finally {
+				template.convertAndSend("channel:test", String.format("我是消息{%d}号: %tT", i, new Date()));
+			}
+		}
+		return R.ok();
+	}
 	/**
 	 * 使用该注解忽略这个API
 	 * 

@@ -1,4 +1,6 @@
- --限流KEY
+
+
+--限流KEY
 local key = "rate.limit:" .. KEYS[1]
  --限流大小
 local limit = tonumber(ARGV[1])       
@@ -9,8 +11,8 @@ local current = tonumber(redis.call('get', key) or "0")
 if current + 1 > limit then 
   return 0
 else 
- -- 没有达到阈值请求数+1，并设置2秒过期
+ -- 没有达到阈值请求数+1，并设置2秒过期 往redis设置值
    redis.call("INCRBY", key,"1")
-   redis.call("expire", key,"2")
+   redis.call("expire", key,ARGV[2])
    return current + 1
 end
